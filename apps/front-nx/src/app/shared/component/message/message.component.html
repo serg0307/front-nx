@@ -1,0 +1,35 @@
+<div class="card my-2">
+  <ng-container *ngIf="message.images?.length; else elseTemplate">
+    <front-nx-carousel *ngIf="message.images?.length" [images]="message.images" [id]="message.id"></front-nx-carousel>
+    <div class="card-body" style="margin-top: -100px">
+      <div class="position-relative text-end text-white">{{message.created | date: 'longDate' }}</div>
+      <front-nx-user></front-nx-user>
+
+      <div class="card-text" [innerHTML]="message.body"></div>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="card-body pt-5">
+      <div class="position-relative text-end text-white">{{message.created | date: 'longDate' }}</div>
+      <front-nx-user></front-nx-user>
+
+      <div class="card-text" [innerHTML]="message.body"></div>
+    </div>
+  </ng-template>
+
+
+  <div class="position-absolute top-0 w-100 p-2 d-flex">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-outline-success">
+        <i class="bi bi-hand-thumbs-up-fill"></i>
+      </button>
+      <button type="button" class="btn btn-outline-secondary">
+        <i class="bi bi-hand-thumbs-down-fill"></i>
+      </button>
+    </div>
+    <div class="flex-grow-1"></div>
+    <button type="button" class="btn btn-primary">
+      <i class="bi bi-repeat"></i>
+    </button>
+  </div>
+</div>

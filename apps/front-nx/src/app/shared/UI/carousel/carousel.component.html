@@ -1,0 +1,17 @@
+<div id="carousel-{{id}}" class="carousel slide">
+  <div class="carousel-inner">
+    <ng-container *ngFor="let item of items; let i=index">
+      <div class="carousel-item {{i === 0 ? 'active' : ''}}">
+        <img src="{{item.imageUrl}}" class="d-block w-100" alt="...">
+      </div>
+    </ng-container>
+  </div>
+  <button class="carousel-control-prev h-25 m-auto" type="button" [attr.data-bs-target]="'#carousel-' +id" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next h-25 m-auto" type="button" [attr.data-bs-target]="'#carousel-' +id"data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
