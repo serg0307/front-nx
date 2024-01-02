@@ -1,0 +1,30 @@
+{
+  "name": "front-nx-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/front-nx-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/front-nx-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "front-nx:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "front-nx:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "front-nx:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["front-nx"]
+}

@@ -1,0 +1,89 @@
+{
+  "name": "front-nx",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "front-nx",
+  "sourceRoot": "apps/front-nx/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/front-nx",
+        "index": "apps/front-nx/src/index.html",
+        "browser": "apps/front-nx/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/front-nx/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/front-nx/src/favicon.ico", "apps/front-nx/src/assets"],
+        "styles": ["apps/front-nx/src/styles.scss"],
+        "scripts": [],
+        "server": "apps/front-nx/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "apps/front-nx/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "front-nx:build:production"
+        },
+        "development": {
+          "buildTarget": "front-nx:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "front-nx:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/front-nx/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "front-nx:build",
+        "staticFilePath": "dist/apps/front-nx/browser"
+      }
+    }
+  }
+}
