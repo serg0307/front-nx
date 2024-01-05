@@ -3,7 +3,7 @@
     <front-nx-carousel *ngIf="message.images?.length" [images]="message.images" [id]="message.uuid"></front-nx-carousel>
     <div class="card-body" style="margin-top: -100px">
       <div class="position-relative text-end text-white fst-italic">{{message.created | date: 'longDate' }}</div>
-      <front-nx-user-card></front-nx-user-card>
+      <front-nx-user-card [user]="message.author"></front-nx-user-card>
 
       <div class="card-text" [innerHTML]="message.text"></div>
     </div>
@@ -11,7 +11,7 @@
   <ng-template #elseTemplate>
     <div class="card-body pt-5">
       <div class="position-relative text-end fst-italic">{{message.created | date: 'longDate' }}</div>
-      <front-nx-user-card></front-nx-user-card>
+      <front-nx-user-card [user]="message.author"></front-nx-user-card>
 
       <div class="card-text" [innerHTML]="message.text"></div>
     </div>

@@ -16,7 +16,7 @@ export class CarouselComponent implements OnInit {
   items: ICarouselItem[] = []
   ngOnInit(): void {
     this.images.forEach(element => {
-      this.items.push({imageUrl: element.styles['large']});
+      this.items.push({imageUrl: element.styles['post_image_800x600']});
     });
   }
 }

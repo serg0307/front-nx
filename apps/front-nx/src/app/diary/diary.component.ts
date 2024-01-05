@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MessageComponent } from '../shared/component/message/message.component';
 import { Observable } from 'rxjs';
 import { DiaryService } from './diary.service';
-import { IEntity } from '../shared/interface/entity';
 import { RepostComponent } from '../shared/component/repost/repost.component';
 import { DiaryItem } from './diary.interface';
 

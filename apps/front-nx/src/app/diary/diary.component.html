@@ -6,13 +6,10 @@
         <front-nx-message [message]="item.entity"></front-nx-message>
       }
       @if (item.type == 'repost') {
-        <div class="p-5">
+        <div class="p-1 border bg-secondary">
           <h3>REPOST</h3>
           <front-nx-message [message]="item.entity"></front-nx-message>
         </div>
-
-
-
       }
     }
   </div>
