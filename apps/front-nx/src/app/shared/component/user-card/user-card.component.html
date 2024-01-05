@@ -1,1 +1,14 @@
-<p>userCard works!</p>
+@if (user) {
+<div class="card mb-3">
+  <div class="d-flex g-0">
+    <div class="">
+
+    </div>
+    <div class="flex-grow-1">
+      <div class="card-body">
+        <h5 class="card-title">{{user.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+}

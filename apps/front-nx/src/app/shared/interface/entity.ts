@@ -1,6 +1,8 @@
+import { IUser } from "../../user/user.interface";
+
 export interface IEntity {
-  id: string,
+  uuid: string,
+  type: string,
   created: Date,
-  changed?: Date,
-  langcode?: string
+  author: IUser,
 }

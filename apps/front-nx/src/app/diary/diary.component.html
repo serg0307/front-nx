@@ -1,3 +1,20 @@
-<div class="container-md mb-5">
-  <front-nx-message *ngFor="let message of messages; let i=index" [message]="message"></front-nx-message>
-</div>
+@if (diary$ | async ) {
+  <div class="container-md mb-5">
+    @for (item of diary$ | async; track $index) {
+
+      @if (item.type == 'post') {
+        <front-nx-message [message]="item.entity"></front-nx-message>
+      }
+      @if (item.type == 'repost') {
+        <div class="p-5">
+          <h3>REPOST</h3>
+          <front-nx-message [message]="item.entity"></front-nx-message>
+        </div>
+
+
+
+      }
+    }
+  </div>
+}
+

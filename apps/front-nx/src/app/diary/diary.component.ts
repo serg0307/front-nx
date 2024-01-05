@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IMessage } from '../shared/component/message/message.interface';
-import { mockMessages } from './diary.mockdata';
 import { MessageComponent } from '../shared/component/message/message.component';
+import { Observable } from 'rxjs';
+import { DiaryService } from './diary.service';
+import { IEntity } from '../shared/interface/entity';
+import { RepostComponent } from '../shared/component/repost/repost.component';
+import { DiaryItem } from './diary.interface';
 
 @Component({
   selector: 'front-nx-diary',
   standalone: true,
-  imports: [CommonModule, MessageComponent],
+  imports: [CommonModule, MessageComponent, RepostComponent],
   templateUrl: './diary.component.html',
   styleUrl: './diary.component.scss',
 })
-export class DiaryComponent {
-  messages: IMessage[] = mockMessages;
+export class DiaryComponent implements OnInit {
+  dataService = inject(DiaryService);
+  diary$: Observable<DiaryItem[]> = new Observable;
+
+  ngOnInit(): void {
+    this.diary$ = this.dataService.getDiary();
+    this.diary$.subscribe(data=>console.log(data));
+  }
 }

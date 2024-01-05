@@ -1,1 +1,27 @@
-<div class="display-1 text-capitalize text-center">welcome to sparkl</div>
+<div class="container">
+  <div class="display-1 text-capitalize text-center">welcome to sparkl</div>
+  <div class="border p-3 my-3">
+    <h2>TESING BLOCK</h2>
+    <div class="d-flex gap-1 my-2">
+      <div class="my-auto me-2">DEV</div>
+      <button class="btn btn-primary" (click)="login()">Login DEV</button>
+      <button class="btn btn-outline-primary" (click)="checkUser()">Check login state</button>
+      <button class="btn btn-outline-primary" (click)="checkToken()">Check token</button>
+      <button class="btn btn-danger" (click)="logout()">Log out</button>
+    </div>
+    <div class="d-flex gap-1 my-2">
+      <div class="my-auto me-2">Forms (not working)</div>
+      <button class="btn btn-outline-primary" disabled (click)="checkToken()">Login</button>
+      <button class="btn btn-outline-primary" disabled (click)="checkToken()">Register</button>
+    </div>
+    <div class="d-flex gap-1 my-2">
+      <div class="my-auto me-2">Users: </div>
+      <a class="btn btn-outline-primary" [href]="'/user/1'">Dev</a>
+      <a class="btn btn-outline-primary" [href]="'/user/2'">Ceo</a>
+    </div>
+    <div class="d-flex gap-1 my-2">
+      <div class="my-auto me-2">Socket.io (not working): </div>
+      <button class="btn btn-outline-primary" disabled (click)="sendSocketEvent()">test socket event</button>
+    </div>
+  </div>
+</div>
