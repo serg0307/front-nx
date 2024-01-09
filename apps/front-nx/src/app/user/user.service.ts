@@ -12,7 +12,6 @@ export class UserService {
     return this.http.get<IUser>('/api/users/'+uid);
   }
   public getUserByUuid(uuid: string): Observable<IUser> {
-    console.log(uuid);
     return this.http.get<IUser>('/api/users/by_uuid/'+uuid);
   }
 }

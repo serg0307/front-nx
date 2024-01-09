@@ -1,0 +1,3 @@
+<div *ngIf="achievement.badge?.styles" class="text-center">
+  <img [src]="achievement.badge.styles['thumbnail']" (alt)="achievement.name" class="border rounded-circle"  placement="bottom" ngbTooltip="{{achievement.name}}">
+</div>

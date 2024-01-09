@@ -1,12 +1,15 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Injectable, PLATFORM_ID, inject } from '@angular/core';
+import { Injectable, PLATFORM_ID, computed, effect, inject } from '@angular/core';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
   private readonly platformId = inject(PLATFORM_ID);
+  constructor() {
 
+  }
   // Set a value in local storage
   setItem(key: string, value: string): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -24,9 +27,7 @@ export class LocalStorageService {
 
   // Remove a value from local storage
   removeItem(key: string): void {
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.removeItem(key);
-    }
+    localStorage.removeItem(key);
   }
 
   // Clear all items from local storage

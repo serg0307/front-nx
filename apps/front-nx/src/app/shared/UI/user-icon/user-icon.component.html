@@ -1,0 +1,7 @@
+<div class="avatar ">
+  @if (this.user.avatar) {
+    <img [src]="getUserIcon()" class="h-100 rounded-circle"/>
+  } @else {
+    <i class="bi bi-person-circle"></i>
+  }
+</div>

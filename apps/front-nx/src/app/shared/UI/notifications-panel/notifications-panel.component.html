@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">Панель сповіщень</div>
+  <div class="card-body">
+    <ul class="row">
+      @for (item of items; track $index) {
+        <li class="col-4 text-center text-capitalize">
+          <div >
+            <i class="bi {{item.icon}}"></i>
+            <div>{{item.name}}</div>
+          </div>
+        </li>
+      }
+    </ul>
+
+  </div>
+</div>
